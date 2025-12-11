@@ -19,7 +19,9 @@ interface BudgetTrackerProps {
 export default function BudgetTracker({ categoryTotals }: BudgetTrackerProps) {
   const [budgets, setBudgets] = useState<Budget[]>([]);
   const [showBudgetModal, setShowBudgetModal] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState(CATEGORIES[0]);
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    CATEGORIES[0]
+  );
   const [budgetAmount, setBudgetAmount] = useState("");
 
   const addBudget = () => {
@@ -139,7 +141,7 @@ export default function BudgetTracker({ categoryTotals }: BudgetTrackerProps) {
             </label>
             <select
               value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
+              onChange={(e) => setSelectedCategory(e.target.value as string)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               {CATEGORIES.map((cat) => (

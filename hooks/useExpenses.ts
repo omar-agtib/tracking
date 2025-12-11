@@ -62,10 +62,10 @@ export function useExpenses() {
       }
 
       if (filters.minAmount !== undefined) {
-        filtered = filtered.filter((e) => e.amount >= filters.minAmount);
+        filtered = filtered.filter((e) => e.amount >= filters.minAmount!);
       }
       if (filters.maxAmount !== undefined) {
-        filtered = filtered.filter((e) => e.amount <= filters.maxAmount);
+        filtered = filtered.filter((e) => e.amount <= filters.maxAmount!);
       }
 
       if (filters.searchTerm) {

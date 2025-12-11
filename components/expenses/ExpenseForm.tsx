@@ -20,7 +20,7 @@ export default function ExpenseForm({
 }: ExpenseFormProps) {
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
-  const [category, setCategory] = useState(CATEGORIES[0]);
+  const [category, setCategory] = useState<string>(CATEGORIES[0]);
   const [notes, setNotes] = useState("");
   const [tags, setTags] = useState("");
   const [isRecurring, setIsRecurring] = useState(false);
@@ -110,7 +110,10 @@ export default function ExpenseForm({
         />
       </div>
 
-      <CategoryPicker value={category} onChange={setCategory} />
+      <CategoryPicker
+        value={category}
+        onChange={(val) => setCategory(val as string)}
+      />
 
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
